@@ -3,6 +3,9 @@
 	<head>
 		<title>
 			<?php
+				if ($_GET["s"] ?? true) {
+					$_GET["s"] = "mc.hypixel.net";
+				}
 				$json = file_get_contents('https://api.mcsrvstat.us/2/'.$_GET["s"]);
 				$obj = json_decode($json);
 				echo $obj->ip.":".$obj->port;
